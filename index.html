@@ -25,14 +25,14 @@
         <!-- Button Game -->
         <div id="button-game-screen" class="screen">
             <h2>Task 1: Click the Happy Button!</h2>
-            <p>This friendly button loves to be clicked! Just click it 10 times!</p>
+            <p>This friendly button loves to be clicked! Just click it 20 times!</p>
             <div class="game-container">
                 <button id="runaway-btn">Click Me! 😊</button>
             </div>
             <div class="progress-bar">
                 <div class="progress" id="button-progress"></div>
             </div>
-            <p class="counter">Clicks: <span id="click-count">0</span>/10</p>
+            <p class="counter">Clicks: <span id="click-count">0</span>/20</p>
         </div>
         
         <!-- Checkbox Game -->
@@ -43,7 +43,7 @@
             <div class="progress-bar">
                 <div class="progress" id="checkbox-progress"></div>
             </div>
-            <p class="counter">Checked: <span id="checked-count">0</span>/20</p>
+            <p class="counter">Checked: <span id="checked-count">0</span>/50</p>
         </div>
         
         <!-- Memory Game -->
@@ -55,22 +55,265 @@
             <div class="progress-bar">
                 <div class="progress" id="memory-progress"></div>
             </div>
-            <p class="counter">Level: <span id="memory-level">1</span>/3</p>
+            <p class="counter">Level: <span id="memory-level">1</span>/7</p>
         </div>
         
-        <!-- Final Message -->
-        <div id="final-screen" class="screen">
-            <h2>Congratulations! 🎉</h2>
-            <p>You completed all the tasks! Here's your special message:</p>
-            <div id="final-message">
-                SURPRISE! You just got rage baited! 😂
-                <br><br>
-                This "easy game" was designed to be frustrating! 
-                How long did it take you to realize it wasn't actually easy?
-                <br><br>
-                Share this with friends to see how they handle the "simple tasks"!
+        <!-- Never-Ending Progress Bar -->
+        <div id="progress-bar-screen" class="screen">
+            <h2>Task 4: Almost Done!</h2>
+            <p>Just wait for the progress bar to complete!</p>
+            <div class="fake-loader">
+                <div class="fake-progress" id="fake-progress"></div>
             </div>
-            <button id="restart-btn">Play Again?</button>
+            <p id="progress-text">Loading... 0%</p>
+            <div class="annoying-ad">Your computer might be slow. Be patient!</div>
+        </div>
+        
+        <!-- Impossible Captcha -->
+        <div id="captcha-screen" class="screen">
+            <h2>Task 5: Verify You're Human</h2>
+            <p>Select all squares with <span id="captcha-target">traffic lights</span>:</p>
+            <div class="captcha-container" id="captcha-container"></div>
+            <button id="verify-captcha">Verify</button>
+            <p id="captcha-message" class="error-message"></p>
+        </div>
+        
+        <!-- Fake Download -->
+        <div id="download-screen" class="screen">
+            <h2>Task 6: Download Required</h2>
+            <p>You need to download this file to continue:</p>
+            <div class="download-box">
+                <div class="file-icon">📁</div>
+                <div class="file-name">essential_game_file.exe</div>
+                <div class="file-size">(2.4 MB)</div>
+            </div>
+            <button id="download-btn">Download Now</button>
+            <div class="virus-scan" id="virus-scan">
+                <div class="scan-progress"></div>
+                <p>Scanning for viruses... 0%</p>
+            </div>
+        </div>
+        
+        <!-- Moving Target Game -->
+        <div id="target-screen" class="screen">
+            <h2>Task 7: Click the Targets</h2>
+            <p>Click all the red circles before time runs out!</p>
+            <div class="timer" id="target-timer">Time: 10s</div>
+            <div class="target-container" id="target-container"></div>
+            <div class="progress-bar">
+                <div class="progress" id="target-progress"></div>
+            </div>
+            <p class="counter">Targets: <span id="target-count">0</span>/15</p>
+        </div>
+        
+        <!-- Agree to Terms -->
+        <div id="terms-screen" class="screen">
+            <h2>Task 8: Agree to Terms</h2>
+            <p>Please read and agree to our terms and conditions:</p>
+            <div class="terms-box">
+                <div class="terms-content" id="terms-content">
+                    <!-- Terms will be generated here -->
+                </div>
+            </div>
+            <div class="terms-agree">
+                <input type="checkbox" id="agree-checkbox">
+                <label for="agree-checkbox">I have read and agree to the terms and conditions</label>
+            </div>
+            <button id="agree-btn" disabled>I Agree</button>
+        </div>
+        
+        <!-- Password Creation -->
+        <div id="password-screen" class="screen">
+            <h2>Task 9: Create Secure Password</h2>
+            <p>Your password must meet the following requirements:</p>
+            <div class="password-rules" id="password-rules">
+                <!-- Rules will be generated here -->
+            </div>
+            <div class="password-input">
+                <input type="password" id="password-field" placeholder="Enter your password">
+                <button id="submit-password">Submit</button>
+            </div>
+            <p id="password-message" class="error-message"></p>
+        </div>
+        
+        <!-- Fake Error Pop-up -->
+        <div id="error-screen" class="screen">
+            <h2>Task 10: Error Handling</h2>
+            <p>Oops! Something went wrong. Please close all error windows to continue.</p>
+            <div class="error-container" id="error-container">
+                <!-- Error windows will be generated here -->
+            </div>
+            <p class="counter">Errors: <span id="error-count">5</span> remaining</p>
+        </div>
+        
+        <!-- Color Matching -->
+        <div id="color-screen" class="screen">
+            <h2>Task 11: Color Match</h2>
+            <p>Match the target color using the sliders:</p>
+            <div class="color-target" id="color-target"></div>
+            <div class="color-controls">
+                <div class="color-slider">
+                    <label>Red: <span id="red-value">128</span></label>
+                    <input type="range" id="red-slider" min="0" max="255" value="128">
+                </div>
+                <div class="color-slider">
+                    <label>Green: <span id="green-value">128</span></label>
+                    <input type="range" id="green-slider" min="0" max="255" value="128">
+                </div>
+                <div class="color-slider">
+                    <label>Blue: <span id="blue-value">128</span></label>
+                    <input type="range" id="blue-slider" min="0" max="255" value="128">
+                </div>
+            </div>
+            <div class="color-result" id="color-result"></div>
+            <button id="check-color">Check Match</button>
+            <p id="color-message"></p>
+        </div>
+        
+        <!-- Maze of Doom -->
+        <div id="maze-screen" class="screen">
+            <h2>Task 12: Find the Exit</h2>
+            <p>Navigate through the maze to find the exit!</p>
+            <div class="maze-container" id="maze-container">
+                <!-- Maze will be generated here -->
+            </div>
+            <div class="maze-controls">
+                <button id="maze-up">↑</button>
+                <button id="maze-left">←</button>
+                <button id="maze-down">↓</button>
+                <button id="maze-right">→</button>
+            </div>
+        </div>
+        
+        <!-- Simon Says -->
+        <div id="simon-screen" class="screen">
+            <h2>Task 13: Simon Says</h2>
+            <p>Repeat the pattern that Simon shows you!</p>
+            <div class="simon-container" id="simon-container">
+                <div class="simon-button red" data-color="red"></div>
+                <div class="simon-button blue" data-color="blue"></div>
+                <div class="simon-button green" data-color="green"></div>
+                <div class="simon-button yellow" data-color="yellow"></div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="simon-progress"></div>
+            </div>
+            <p class="counter">Round: <span id="simon-round">1</span>/5</p>
+        </div>
+        
+        <!-- Fake Social Media -->
+        <div id="social-screen" class="screen">
+            <h2>Task 14: Share with Friends</h2>
+            <p>Share your progress with friends to continue!</p>
+            <div class="social-buttons">
+                <button class="social-btn facebook">Share on Facebook</button>
+                <button class="social-btn twitter">Share on Twitter</button>
+                <button class="social-btn instagram">Share on Instagram</button>
+            </div>
+            <div class="fake-login">
+                <p>Or login to continue:</p>
+                <input type="text" placeholder="Username or Email">
+                <input type="password" placeholder="Password">
+                <button id="fake-login-btn">Login</button>
+            </div>
+            <button id="skip-social" class="skip-btn">Skip (Not Recommended)</button>
+        </div>
+        
+        <!-- Cookie Clicker -->
+        <div id="cookie-screen" class="screen">
+            <h2>Task 15: Cookie Clicker</h2>
+            <p>Click the cookie as many times as you can in 10 seconds!</p>
+            <div class="timer" id="cookie-timer">Time: 10s</div>
+            <div class="cookie-container">
+                <div class="cookie" id="cookie">🍪</div>
+            </div>
+            <p class="counter">Cookies: <span id="cookie-count">0</span></p>
+            <div class="cookie-upgrades">
+                <button class="upgrade-btn" disabled>Auto-Clicker (50 cookies)</button>
+                <button class="upgrade-btn" disabled>Grandma (100 cookies)</button>
+            </div>
+        </div>
+        
+        <!-- Unbeatable AI -->
+        <div id="ai-screen" class="screen">
+            <h2>Task 16: Beat the AI</h2>
+            <p>Play Rock Paper Scissors against our AI!</p>
+            <div class="rps-game">
+                <div class="rps-choices">
+                    <button class="rps-btn" data-choice="rock">✊</button>
+                    <button class="rps-btn" data-choice="paper">✋</button>
+                    <button class="rps-btn" data-choice="scissors">✌️</button>
+                </div>
+                <div class="rps-result">
+                    <div class="rps-player">
+                        <p>You chose:</p>
+                        <div id="player-choice">-</div>
+                    </div>
+                    <div class="rps-ai">
+                        <p>AI chose:</p>
+                        <div id="ai-choice">-</div>
+                    </div>
+                </div>
+                <p id="rps-message">First to 3 wins!</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="rps-progress"></div>
+            </div>
+            <p class="counter">Wins: <span id="rps-wins">0</span>/3</p>
+        </div>
+        
+        <!-- Fake System Update -->
+        <div id="update-screen" class="screen">
+            <h2>Task 17: System Update</h2>
+            <p>Your system needs to update to continue...</p>
+            <div class="update-screen">
+                <div class="update-header">
+                    <h3>Windows Update</h3>
+                </div>
+                <div class="update-content">
+                    <p>Installing update 1 of 3...</p>
+                    <div class="update-progress">
+                        <div class="update-bar" id="update-bar"></div>
+                    </div>
+                    <p id="update-percent">0%</p>
+                    <p class="update-note">Do not turn off your computer.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Find the Difference -->
+        <div id="difference-screen" class="screen">
+            <h2>Task 18: Find the Differences</h2>
+            <p>Find 5 differences between these two images:</p>
+            <div class="difference-container">
+                <div class="image-comparison">
+                    <div class="image-box" id="image-left">
+                        <!-- Dots will be added here -->
+                    </div>
+                    <div class="image-box" id="image-right">
+                        <!-- Dots will be added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="difference-progress"></div>
+            </div>
+            <p class="counter">Differences: <span id="difference-count">0</span>/5</p>
+        </div>
+        
+        <!-- Final Image Screen -->
+        <div id="final-image-screen" class="screen">
+            <h2>Congratulations! 🎉</h2>
+            <p>You completed all 18 rage bait tasks!</p>
+            <div class="final-image-container">
+                <img src="https://media.tenor.com/-Rix_WEB6ewAAAAe/my-name-is-skyler-white-yo-skyler-white-yo.png" alt="Congratulations" id="final-image">
+                <div class="final-message">
+                    <h3>You passed this rage bait game...</h3>
+                    <h3 class="insult">BUT YOU SUCK! 😂</h3>
+                    <p>It took you forever to complete these "easy" tasks!</p>
+                </div>
+            </div>
+            <button id="restart-btn">Torture Another Friend</button>
         </div>
     </div>
 
