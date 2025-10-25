@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Floating Elements */
+.floating {
+    position: absolute;
+    z-index: -1;
+    animation: float 15s linear infinite;
+}
+
+.heart {
+    color: #ff6b6b;
+    font-size: 24px;
+}
+
+.star {
+    color: #ffe66d;
+    font-size: 20px;
+}
+
+.smiley {
+    color: #4ecdc4;
+    font-size: 22px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid #ffeaa7;
+}
+
+h1 {
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 0 #ffeaa7;
+    animation: bounce 2s infinite;
+}
+
+h2 {
+    color: #4ecdc4;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.screen {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.active {
+    display: block;
+}
+
+button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+    font-weight: bold;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #ff5252;
+}
+
+.game-container {
+    margin: 20px 0;
+    min-height: 200px;
+}
+
+/* Button Game */
+#runaway-btn {
+    position: relative;
+    transition: all 0.1s;
+    background: #4ecdc4;
+}
+
+/* Checkbox Game */
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.checkbox-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+
+.checkbox-item input {
+    margin: 10px 0;
+    transform: scale(1.5);
+}
+
+/* Memory Game */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.memory-card {
+    height: 80px;
+    background: #a1c4fd;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    color: transparent;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.memory-card.flipped {
+    background: #ffe66d;
+    color: #2d3436;
+    transform: rotateY(180deg);
+}
+
+/* Friendly Note */
+.friendly-note {
+    background: #e3f2fd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    border-left: 5px solid #4ecdc4;
+}
+
+/* Final Message */
+#final-message {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin: 20px 0;
+    animation: colorChange 3s infinite;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    animation: confettiFall 5s linear forwards;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #e3f2fd;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #4ecdc4;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.timer {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #636e72;
+}
+
+.counter {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4ecdc4;
+    margin: 10px 0;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(calc(-50vw + 100px * var(--random-x)));
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes colorChange {
+    0% { color: #ff6b6b; }
+    25% { color: #4ecdc4; }
+    50% { color: #ffe66d; }
+    75% { color: #a29bfe; }
+    100% { color: #ff6b6b; }
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(1000px) rotate(360deg); opacity: 0; }
+}

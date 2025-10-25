@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Easy Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Elements -->
+    <div id="floating-elements"></div>
+    
+    <div class="container">
+        <h1>Fun Easy Game 🎮</h1>
+        
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <h2>Welcome to this Super Easy Game!</h2>
+            <p>This game is really simple and won't take much time at all!</p>
+            <p>Just complete a few quick tasks to see your surprise message!</p>
+            <div class="friendly-note">✅ Simple tasks<br>✅ Quick to complete<br>✅ Very easy!</div>
+            <button id="start-btn">Start Playing!</button>
+        </div>
+        
+        <!-- Button Game -->
+        <div id="button-game-screen" class="screen">
+            <h2>Task 1: Click the Happy Button!</h2>
+            <p>This friendly button loves to be clicked! Just click it 10 times!</p>
+            <div class="game-container">
+                <button id="runaway-btn">Click Me! 😊</button>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="button-progress"></div>
+            </div>
+            <p class="counter">Clicks: <span id="click-count">0</span>/10</p>
+        </div>
+        
+        <!-- Checkbox Game -->
+        <div id="checkbox-screen" class="screen">
+            <h2>Task 2: Simple Checkboxes</h2>
+            <p>Just check all these boxes! It's super easy!</p>
+            <div class="checkbox-container" id="checkbox-container"></div>
+            <div class="progress-bar">
+                <div class="progress" id="checkbox-progress"></div>
+            </div>
+            <p class="counter">Checked: <span id="checked-count">0</span>/20</p>
+        </div>
+        
+        <!-- Memory Game -->
+        <div id="memory-screen" class="screen">
+            <h2>Task 3: Quick Memory Test</h2>
+            <p>Just remember a simple pattern! You can do this!</p>
+            <div class="timer" id="memory-timer">Time: 30s</div>
+            <div class="memory-grid" id="memory-grid"></div>
+            <div class="progress-bar">
+                <div class="progress" id="memory-progress"></div>
+            </div>
+            <p class="counter">Level: <span id="memory-level">1</span>/3</p>
+        </div>
+        
+        <!-- Final Message -->
+        <div id="final-screen" class="screen">
+            <h2>Congratulations! 🎉</h2>
+            <p>You completed all the tasks! Here's your special message:</p>
+            <div id="final-message">
+                SURPRISE! You just got rage baited! 😂
+                <br><br>
+                This "easy game" was designed to be frustrating! 
+                How long did it take you to realize it wasn't actually easy?
+                <br><br>
+                Share this with friends to see how they handle the "simple tasks"!
+            </div>
+            <button id="restart-btn">Play Again?</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
